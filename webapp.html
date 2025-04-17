@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Joke Generator</title>
+  <link rel="stylesheet" href="/css/newstyles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: orangered;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #jokeContainer {
+      background: yellow;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #setup {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: black;
+    }
+
+    #punchline {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="jokeContainer">
+    <div id="setup">Click the button to get a joke!</div>
+    <div id="punchline"></div>
+    <button onclick="getJoke()">Tell Me a Joke</button>
+  </div>
+
+  <script>
+    async function getJoke() {
+      try {
+        const response = await fetch('https://official-joke-api.appspot.com/jokes/random');
+        const data = await response.json();
+        document.getElementById('setup').textContent = data.setup;
+        document.getElementById('punchline').textContent = data.punchline;
+      } catch (error) {
+        document.getElementById('setup').textContent = "Oops! Couldn't fetch a joke.";
+        document.getElementById('punchline').textContent = "";
+        console.error(error);
+      }
+    }
+  </script>
+
+</body>
+</html>

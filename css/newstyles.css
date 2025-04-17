@@ -1,0 +1,35 @@
+
+.header{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    z-index: 0;
+}
+.positions{
+    font-style: italic;
+    color: rgb(63, 63, 108);
+}
+
+.positionsinfo{
+    color:  rgb(65, 17, 17);
+}
+
+.homebg{
+    background-image: url(https://static2.bigstockphoto.com/9/6/7/large1500/76998857.jpg);
+    background-position: top left;
+}
+
+.maxpreps{
+    font-size: large;
+    font-style: bold;
+}
+
+.anchor {
+    color: rgb(131, 6, 131);
+}
+
+.right {
+    position: absolute; 
+    top: 0;
+    right: 0;
+}
